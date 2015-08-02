@@ -7,7 +7,7 @@ public class PowerUpController : MonoBehaviour {
 	float accel = 0.03f;
 	float hspeed;
 	Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2 (0,0));
-	Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2 (1,1));
+	Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2 (1f,1.5f));
 
 	// Use this for initialization
 	void Start () {
@@ -24,6 +24,10 @@ public class PowerUpController : MonoBehaviour {
 		}
 		if(transform.position.x < min.x){
 			transform.position = new Vector3(min.x, transform.position.y);
+		}		
+		if((transform.position.x < min.x) || (transform.position.y < min.y) ||
+		   (transform.position.y > max.y) || (transform.position.x > max.x)){
+			Destroy (gameObject);
 		}
 	}
 	void OnTriggerEnter2D(Collider2D col){

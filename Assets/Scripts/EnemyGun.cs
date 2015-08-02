@@ -114,6 +114,7 @@ public class EnemyGun : MonoBehaviour {
 					bullet.GetComponent<EnemyBulletController>().SetAtk(atk);
 					bullet.GetComponent<EnemyBulletController>().SetSpeed(speed);
 					bullet.GetComponent<EnemyBulletController>().SetAccel(-0.005f);
+					bullet.GetComponent<SpriteRenderer>().sprite = BulletSprites[2];
 					bullet.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
 					bullet.GetComponent<EnemyBulletController>().SetDirection(new Vector2( 	Mathf.Sin ((float)(2*Mathf.PI*i/32.0)), Mathf.Cos ((float)(2*Mathf.PI*i/32.0))));
 				
@@ -127,6 +128,7 @@ public class EnemyGun : MonoBehaviour {
 				bullet.GetComponent<EnemyBulletController>().parent = this.gameObject;
 				bullet.GetComponent<EnemyBulletController>().SetAtk(atk);
 				bullet.GetComponent<EnemyBulletController>().SetSpeed(speed);
+				bullet.GetComponent<SpriteRenderer>().sprite = BulletSprites[1];
 				bullet.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
 				bullet.GetComponent<EnemyBulletController>().SetDirection(new Vector2((float)(playerShip.transform.position.x - (bullet.transform.position.x)), 
 				                                                          (float)(playerShip.transform.position.y - (bullet.transform.position.y))));
