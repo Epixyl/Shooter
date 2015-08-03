@@ -6,10 +6,12 @@ public class PlayerBullet : MonoBehaviour {
 	float speed;
 	Vector3 dir;
 	double atk = 1;
+	GameObject player;
 
 	// Use this for initialization
 	void Start () {
 		speed = 8f;
+		player = GameObject.FindGameObjectWithTag("PlayerShipTag");
 	}
 
 	public void SetDir(Vector2 val){

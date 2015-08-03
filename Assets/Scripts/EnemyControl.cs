@@ -17,6 +17,7 @@ public class EnemyControl : MonoBehaviour {
 	public GameObject EnemyGunObj;
 	GameObject Global;
 	GameObject EnemySpawner;
+	GameObject player;
 	// Use this for initialization
 	void Start () {
 		vspeed = speed;
@@ -24,8 +25,8 @@ public class EnemyControl : MonoBehaviour {
 		Global = GameObject.FindGameObjectWithTag("GlobalTag");
 		health = MaxHealth;
 		scoreUITextGameObj = GameObject.FindGameObjectWithTag("ScoreTextTag");
-		Debug.Log (scoreUITextGameObj);
 		EnemySpawner = GameObject.FindGameObjectWithTag("SpawnerTag");
+		player = GameObject.FindGameObjectWithTag("PlayerShipTag");
 	}
 	
 	// Update is called once per frame
@@ -51,11 +52,11 @@ public class EnemyControl : MonoBehaviour {
 		//Death check
 		if(health <= 0){
 			PlayExplosion ();
+			player.GetComponent<PlayerControl>().AddHealth(dropPower);
 			for(int i = 0; i < dropPower; i++){
 				GameObject powerup = (GameObject)Instantiate (PowerupObj);
 				powerup.transform.position = transform.position;
 			}
-			Debug.Log (scoreUITextGameObj.GetComponent<GameScore>());
 			scoreUITextGameObj.GetComponent<GameScore>().Score += 100;
 			if(--EnemySpawner.GetComponent<EnemySpawnerController>().numEnemies <= 0){
 				EnemySpawner.GetComponent<EnemySpawnerController>().wave++;

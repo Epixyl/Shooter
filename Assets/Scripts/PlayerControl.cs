@@ -87,7 +87,7 @@ public class PlayerControl : MonoBehaviour {
 		PowerUIText.text = "Power: "+power.ToString("F3");
 
 		//atk = BaseAtk*power;
-		health += MaxHealth/10000;
+		//health += MaxHealth/10000;
 
 		//Checks
 		if(health > MaxHealth){
@@ -142,8 +142,6 @@ public class PlayerControl : MonoBehaviour {
 		if(col.tag == "EnemyBulletTag"){
 			PlayExplosion ();
 			health -= col.gameObject.GetComponent<EnemyBulletController>().GetAtk();
-			Debug.Log ("Hit. Health left: "+health);
-
 
 		}
 		if(col.tag == "EnemyShipTag"){
@@ -162,16 +160,20 @@ public class PlayerControl : MonoBehaviour {
 	public void SetPower(double val){
 		power = val;
 		PowerUIText.text = "Power: "+power.ToString("F3");
-		Debug.Log ("Power set to "+power);
+
 	}
 	public void AddPower(double val){
 		power += val;
 		PowerUIText.text = "Power: "+power.ToString("F3");
-		Debug.Log ("Power set to "+power);
+
 	}
 
 	public void SetHealth(double val){
 		health = val;
+	}
+
+	public void AddHealth(double val){
+		health += val;
 	}
 	public void SetAtk(double val){
 		atk = val;
