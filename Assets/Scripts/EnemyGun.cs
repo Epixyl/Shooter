@@ -143,9 +143,9 @@ public class EnemyGun : MonoBehaviour {
 					bullet.GetComponent<EnemyBulletController>().parent = this.gameObject;
 					bullet.GetComponent<EnemyBulletController>().SetAtk(atk);
 					bullet.GetComponent<EnemyBulletController>().SetSpeed(speed);
-					bullet.GetComponent<EnemyBulletController>().SetAccel(0.05f);
+					bullet.GetComponent<EnemyBulletController>().SetAccel(0.05f+Random.Range (0,0.05f));
 					bullet.GetComponent<SpriteRenderer>().sprite = BulletSprites[1];
-					bullet.transform.position = Camera.main.ViewportToWorldPoint(new Vector2 (1/64f+i*(float)(1/32f),1+Random.Range (0,1f)));
+					bullet.transform.position = Camera.main.ViewportToWorldPoint(new Vector2 (1/64f+i*(float)(1/32f),1));
 					bullet.GetComponent<EnemyBulletController>().SetDirection(new Vector2(0f, -1f));
 				}
 				break;
