@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour {
 	public GameObject GameOverGameObj;
 	public GameObject scoreUITextGameObj;
 
+	public int end;
+
 	public enum GameManagerState{
 		Opening,
 		Gameplay,
@@ -20,6 +22,7 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		GMState = GameManagerState.Opening;
+		end = 0;
 	}
 	
 	// Update is called once per frame
@@ -32,12 +35,14 @@ public class GameManager : MonoBehaviour {
 		case GameManagerState.Opening:
 			GameOverGameObj.SetActive(false);
 			playButton.SetActive (true);
+			end = 1;
 			break;
 		case GameManagerState.Gameplay:
 			scoreUITextGameObj.GetComponent<GameScore>().Score = 0;
 			playButton.SetActive(false);
 			playerShip.GetComponent<PlayerControl>().Init ();
 			enemySpawner.GetComponent<EnemySpawnerController>().GameBegin();
+			end = 0;
 			break;
 		case GameManagerState.GameOver:
 			enemySpawner.GetComponent<EnemySpawnerController>().GameEnd();

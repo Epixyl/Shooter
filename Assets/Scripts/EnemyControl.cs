@@ -15,6 +15,7 @@ public class EnemyControl : MonoBehaviour {
 	public GameObject ExplosionGameObj;
 	public GameObject PowerupObj;
 	public GameObject EnemyGunObj;
+	GameObject GameManager;
 	GameObject Global;
 	GameObject EnemySpawner;
 	GameObject player;
@@ -27,6 +28,7 @@ public class EnemyControl : MonoBehaviour {
 		scoreUITextGameObj = GameObject.FindGameObjectWithTag("ScoreTextTag");
 		EnemySpawner = GameObject.FindGameObjectWithTag("SpawnerTag");
 		player = GameObject.FindGameObjectWithTag("PlayerShipTag");
+		GameManager = GameObject.FindGameObjectWithTag("GameTag");
 	}
 	
 	// Update is called once per frame
@@ -47,6 +49,10 @@ public class EnemyControl : MonoBehaviour {
 		if (transform.position.x >= min2.x){
 			transform.position = new Vector3(min2.x, transform.position.y, transform.position.z);
 			hspeed = -speed;
+		}
+
+		if(GameManager.GetComponent<GameManager>().end == 1){
+			Destroy (gameObject);
 		}
 
 		//Death check
