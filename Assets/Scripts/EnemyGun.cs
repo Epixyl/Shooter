@@ -135,19 +135,18 @@ public class EnemyGun : MonoBehaviour {
 
 				break;
 			
-			//Falling random bullets from entire ceiling
+			//Falling random bullets from entire ceiling x1
 			case 7:
-				for(int i = 0; i < 32; i++){
+
 					int length = Camera.main.pixelWidth;
 					bullet = (GameObject)Instantiate (EnemyBulletGameObj);
 					bullet.GetComponent<EnemyBulletController>().parent = this.gameObject;
 					bullet.GetComponent<EnemyBulletController>().SetAtk(atk);
 					bullet.GetComponent<EnemyBulletController>().SetSpeed(speed);
-					bullet.GetComponent<EnemyBulletController>().SetAccel(0.05f+Random.Range (0,0.05f));
-					bullet.GetComponent<SpriteRenderer>().sprite = BulletSprites[1];
-					bullet.transform.position = Camera.main.ViewportToWorldPoint(new Vector2 (1/64f+i*(float)(1/32f),1));
+					bullet.GetComponent<EnemyBulletController>().SetAccel(0.05f);
+					bullet.transform.position = Camera.main.ViewportToWorldPoint(new Vector2 (Random.Range (0f, 1f),1.1f));
 					bullet.GetComponent<EnemyBulletController>().SetDirection(new Vector2(0f, -1f));
-				}
+				
 				break;
 
 			default:
