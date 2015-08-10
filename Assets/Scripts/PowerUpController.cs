@@ -4,14 +4,14 @@ using System.Collections;
 public class PowerUpController : MonoBehaviour {
 
 	float vspeed;
-	float accel = 0.03f;
+	float accel = 0.04f;
 	float hspeed;
 	Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2 (0,0));
 	Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2 (1f,1.5f));
 
 	// Use this for initialization
 	void Start () {
-		vspeed = Random.Range (-1.5f, -3f);
+		vspeed = Random.Range (-1.5f, -2.5f);
 		hspeed = Random.Range (-1f, 1f);
 	}
 	

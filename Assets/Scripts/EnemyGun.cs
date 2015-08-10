@@ -41,6 +41,7 @@ public class EnemyGun : MonoBehaviour {
 		float factor;
 		GameObject bullet;
 		GameObject playerShip = GameObject.Find ("PlayerGameObj");
+		GetComponent<AudioSource>().Play ();
 		if(playerShip != null){
 			switch(style){
 			//Aim to player
@@ -113,7 +114,7 @@ public class EnemyGun : MonoBehaviour {
 					bullet.GetComponent<EnemyBulletController>().parent = this.gameObject;
 					bullet.GetComponent<EnemyBulletController>().SetAtk(atk);
 					bullet.GetComponent<EnemyBulletController>().SetSpeed(speed);
-					bullet.GetComponent<EnemyBulletController>().SetAccel(-0.005f);
+					bullet.GetComponent<EnemyBulletController>().SetAccel(-0.008f);
 					bullet.GetComponent<SpriteRenderer>().sprite = BulletSprites[2];
 					bullet.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
 					bullet.GetComponent<EnemyBulletController>().SetDirection(new Vector2( 	Mathf.Sin ((float)(2*Mathf.PI*i/32.0)), Mathf.Cos ((float)(2*Mathf.PI*i/32.0))));
