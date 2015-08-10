@@ -57,6 +57,7 @@ public class PlayerControl : MonoBehaviour {
 		timecount -= Time.deltaTime;
 		if(timecount < 0){
 			timecount = 0.1f;
+
 			//Level 1
 			ShootBullet (new Vector3(transform.position.x, transform.position.y), atk, new Vector2(0,1), BulletSprites[2]);
 			if(power > 2){
@@ -83,7 +84,7 @@ public class PlayerControl : MonoBehaviour {
 		Vector2 direction = new Vector2(x, y).normalized;*/
 		Move();
 
-		if(power<MaxPower) power += 0.00001; else power = MaxPower;
+		if(power<MaxPower) power += 0.001; else power = MaxPower;
 		PowerUIText.text = "Power: "+power.ToString("F3");
 
 		//atk = BaseAtk*power;
