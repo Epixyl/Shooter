@@ -84,7 +84,7 @@ public class PlayerControl : MonoBehaviour {
 		Vector2 direction = new Vector2(x, y).normalized;*/
 		Move();
 
-		if(power<MaxPower) power += 0.001; else power = MaxPower;
+		if(power<MaxPower) power += 0.0001; else power = MaxPower;
 		PowerUIText.text = "Power: "+power.ToString("F3");
 
 		//atk = BaseAtk*power;
