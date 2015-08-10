@@ -40,9 +40,9 @@ public class EnemySpawnerController : MonoBehaviour {
 		switch(wave){
 		case 1:
 			numEnemies = 3;
-			SpawnEnemy (0, 100, 10, 1, 1.25, 3, 3, new Vector3(0,0,0));
-			SpawnEnemy (0, 100, 10, 1, 1, 3, 3, new Vector3(0,0,0));
-			SpawnEnemy (0, 100, 10, 1, 1.25, 3, 3, new Vector3(0,0,0));
+			SpawnEnemy (0, 100, 10, 1, 1.25, 3, 3, new Vector3(0,-0.2f,0));
+			SpawnEnemy (0, 100, 10, 1, 1, 3, 3, new Vector3(0,-0.2f,0));
+			SpawnEnemy (0, 100, 10, 1, 1.25, 3, 3, new Vector3(0,-0.2f,0));
 			break;
 		case 2:
 			numEnemies = 3;

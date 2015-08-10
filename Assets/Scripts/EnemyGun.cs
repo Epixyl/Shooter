@@ -5,6 +5,7 @@ public class EnemyGun : MonoBehaviour {
 
 	public GameObject EnemyBulletGameObj;
 	public Sprite[] BulletSprites;
+	public AudioClip shootSound;
 
 	double atk;
 	double fireRate;

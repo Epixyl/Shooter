@@ -15,6 +15,7 @@ public class EnemyControl : MonoBehaviour {
 	public GameObject ExplosionGameObj;
 	public GameObject PowerupObj;
 	public GameObject EnemyGunObj;
+	public AudioClip hitSound;
 	GameObject GameManager;
 	GameObject Global;
 	GameObject EnemySpawner;
@@ -83,7 +84,8 @@ public class EnemyControl : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col){
 		if(col.tag == "PlayerBulletTag"){
 			health -= col.gameObject.GetComponent<PlayerBullet>().GetAtk();
-			GetComponent<AudioSource>().Play ();
+			//GetComponent<AudioSource>().Play ();
+			AudioSource.PlayClipAtPoint(hitSound, transform.position);
 		}
 		if(col.tag == "PlayerShipTag"){
 
